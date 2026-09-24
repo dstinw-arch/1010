@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>10/10 清水巖健行 工作分配</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F0E5DE; --paper:#FBF6F2; --mist:#D9D4CF; --sea:#ABD0CE; --sea-deep:#5E8F8C;
+  --stone:#7C7877; --ink:#3F3B3A; --ink-soft:#5f5a59;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#2E2B2A; --paper:#3A3635; --mist:#4A4645; --sea:#6E9E9B; --sea-deep:#ABD0CE;
+    --stone:#B5AFAC; --ink:#F0E5DE; --ink-soft:#D9D4CF;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#2E2B2A; --paper:#3A3635; --mist:#4A4645; --sea:#6E9E9B; --sea-deep:#ABD0CE;
+  --stone:#B5AFAC; --ink:#F0E5DE; --ink-soft:#D9D4CF;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  font-size:17px;line-height:1.7}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px 56px}
+
+/* hero */
+.hero{padding:40px 0 26px;position:relative}
+.hero svg{position:absolute;right:-6px;top:22px;width:190px;max-width:48%;opacity:.9}
+.date{font-family:"Noto Serif TC",serif;font-weight:900;color:var(--sea-deep);
+  font-size:20px;letter-spacing:.06em}
+h1{font-family:"Noto Serif TC",serif;font-weight:900;font-size:clamp(34px,9vw,52px);
+  line-height:1.15;margin:6px 0 14px;position:relative}
+.facts{display:flex;flex-wrap:wrap;gap:8px;position:relative}
+.fact{background:var(--paper);border:1.5px solid var(--mist);border-radius:999px;
+  padding:4px 14px;font-size:15px;color:var(--ink-soft)}
+.fact b{color:var(--ink);font-weight:700}
+
+/* search */
+.find{background:var(--sea);border-radius:20px;padding:18px;margin:8px 0 34px}
+.find label{display:block;font-weight:700;margin-bottom:8px;color:#2f4644}
+.find input{width:100%;font-size:20px;padding:12px 16px;border-radius:12px;
+  border:2px solid transparent;background:var(--paper);color:var(--ink);font-family:inherit}
+.find input:focus{outline:none;border-color:var(--sea-deep)}
+#result{margin-top:12px}
+.hit{background:var(--paper);border-radius:14px;padding:14px 16px;margin-top:10px}
+.hit .who{font-size:22px;font-weight:700}
+.hit .who small{font-size:15px;font-weight:500;color:var(--stone);margin-left:8px}
+.hit a{color:var(--sea-deep);font-weight:700}
+.miss{color:#2f4644;font-size:15px}
+
+h2{font-family:"Noto Serif TC",serif;font-weight:900;font-size:26px;margin:40px 0 14px}
+
+/* groups */
+.zone{margin-bottom:26px}
+.zone-name{display:inline-block;background:var(--stone);color:var(--bg);
+  font-weight:700;font-size:15px;padding:2px 12px;border-radius:6px;margin-bottom:10px}
+.group{background:var(--paper);border-left:6px solid var(--sea);border-radius:4px 16px 16px 4px;
+  padding:16px 18px;margin-bottom:12px}
+.group header{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.group h3{margin:0;font-size:21px}
+.count{font-size:15px;color:var(--stone)}
+.lead{font-size:15px;color:var(--sea-deep);font-weight:700;margin-top:2px}
+.people{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.p{background:var(--bg);border-radius:8px;padding:3px 10px;font-size:16px;white-space:nowrap}
+.p i{font-style:normal;font-size:12px;color:var(--stone);margin-left:4px}
+.p.sub{border:1px dashed var(--stone)}
+.tasks{margin:0;padding-left:1.4em;color:var(--ink-soft)}
+.tasks li{margin:3px 0}
+.note{color:#b0645f;font-weight:700}
+.where{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+.where a,.where span{font-size:14px;padding:3px 10px;border-radius:999px;text-decoration:none;
+  border:1.5px solid var(--sea-deep);color:var(--sea-deep);font-weight:500}
+.where span{border-color:var(--mist);color:var(--stone)}
+.flash{animation:flash 1.6s ease}
+@keyframes flash{0%,40%{background:var(--sea)}100%{background:var(--paper)}}
+
+/* map */
+.spots{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.spot{display:block;background:var(--paper);border-radius:14px;padding:14px 16px;
+  text-decoration:none;color:var(--ink);border:1.5px solid var(--mist)}
+.spot:hover,.spot:focus-visible{border-color:var(--sea-deep);outline:none}
+.spot b{display:block;font-size:18px}
+.spot span{font-size:14px;color:var(--sea-deep)}
+
+/* sizes */
+.sizes{display:flex;gap:10px;flex-wrap:wrap}
+.size{flex:1 1 90px;background:var(--paper);border-radius:14px;padding:12px;text-align:center}
+.size b{display:block;font-family:"Noto Serif TC",serif;font-size:32px;line-height:1.1}
+.size span{font-size:14px;color:var(--stone)}
+footer{margin-top:40px;font-size:13px;color:var(--stone);text-align:center}
+a:focus-visible,input:focus-visible{outline:3px solid var(--sea-deep);outline-offset:2px}
+@media (prefers-reduced-motion: reduce){.flash{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="hero">
+  <svg viewBox="0 0 200 110" aria-hidden="true">
+    <path d="M0 110 L55 38 L82 66 L118 14 L200 110Z" fill="#ABD0CE"/>
+    <path d="M40 110 L95 55 L130 88 L150 70 L200 110Z" fill="#D9D4CF"/>
+    <path d="M10 104 C50 96 70 84 95 80 S150 60 190 58" fill="none" stroke="#7C7877" stroke-width="2.5" stroke-dasharray="5 6" stroke-linecap="round"/>
+  </svg>
+  <div class="date">115.10.10（六）</div>
+  <h1>清水巖健行<br>工作分配</h1>
+  <div class="facts">
+    <div class="fact">集合 <b>早上 06:30</b></div>
+    <div class="fact">工作人員 <b>43 人</b></div>
+    <div class="fact"><b>10</b> 個組別</div>
+  </div>
+</section>
+
+<div class="find">
+  <label for="q">找自己的組別</label>
+  <input id="q" type="search" placeholder="輸入姓名，例：許信傑" autocomplete="off">
+  <div id="result"></div>
+</div>
+
+<h2>各組工作</h2>
+<div id="groups"></div>
+
+<h2>地點導航</h2>
+<div class="spots" id="spots"></div>
+
+<h2>衣服尺寸統計</h2>
+<div class="sizes" id="sizes"></div>
+
+<footer>工作結束後，設備與帳篷全數上車回 69 號</footer>
+</div>
+
+<script>
+const MAP={
+  "淡水球場停車場":"https://maps.app.goo.gl/zYWnmmdZrnPYUC3j9",
+  "雲門舞集旁星巴克機車停車場":"https://maps.app.goo.gl/niKfGTKv1my9tLHH6",
+  "淡水行忠宮旁人行道":"https://maps.app.goo.gl/3XxieVysVeq8bn5K8",
+  "新興國小":"https://maps.app.goo.gl/wMwFda21CNFqzUbs8"
+};
+const G=[
+ {zone:"新興國小",name:"主持組",lead:"",people:[["吳俊慶","XL"]],
+  tasks:["主持及機動協調。"],where:["全區"]},
+ {zone:"新興國小",name:"兌獎組",lead:"由高副總負責統一指揮",
+  people:[["高稵婕","-"],["李建興","XL"],["翁于珣","M"],["雷琦如","M"],["康玫如","L"],["蔡瑩如","M"],["張菁芳","L"],["王譽婷","L"],["侯嘉惠","XL"],["黃世瑋","XL"],["許家瑋","M"],["林譽恩","XL"]],
+  tasks:["由高副總負責統一指揮。"],where:["新興國小"]},
+ {zone:"新興國小",name:"參加獎組",lead:"",
+  people:[["張峯銘","2L","一組"],["林靜宜","L","一組"],["黃水木","L","二組"],["何麗秋","M","二組"],["陳思翰","L","三組"],["呂蕙蘭","M","三組"]],
+  tasks:["前往參加獎帳篷報到。","協助發放參加贈品。"],note:"※ 請自行攜帶刀片",where:["新興國小"]},
+ {zone:"新興國小",name:"動線組",lead:"",
+  people:[["楊易純","L","一組"],["吳佩珊","2L","二組"],["呂姿慧","L","三組"]],
+  tasks:["06:30 至校門口等待設備，完成設備擺設：關東旗＋旗座 4 組，放置校門口即可。","協助發早餐。","前往參加獎帳篷前，引導民眾領取，並保持動線流暢。"],where:["新興國小"]},
+ {zone:"新興國小",name:"樓梯維安組",lead:"",
+  people:[["陳錦玉","XL"],["許淑姿","L"],["黃雅淑","2L"]],
+  tasks:["前往進入操場樓梯位置。","提醒民眾小心腳步。"],where:["新興國小"]},
+ {zone:"淡水球場",name:"發水組",lead:"",
+  people:[["康榮華","XL"],["李玉泉","2L"],["江睿程","L"],["高伯瑞","XL"],["康家豪","2L"],["徐慶瑞","2L"],["林岱毅","XL"],["張庭瑋","XL"],["張慧敏","XL"],["江珮筠","M"]],
+  tasks:["06:30 至淡水球場停車場帳篷區場佈。","協助發物資。","引導民眾動線。","幫忙回收礦泉水紙板。","現場淨空，全數上車回 69 號。"],where:["淡水球場停車場","新興國小"]},
+ {zone:"淡水球場",name:"蓋章組",lead:"",
+  people:[["呂巧琦","XL"],["白嘉玲","XL"]],
+  tasks:["06:30 至雲門舞集旁星巴克機車停車場場佈。","協助蓋章。","引導民眾動線。"],where:["雲門舞集旁星巴克機車停車場"]},
+ {zone:"隧道",name:"摸彩組",lead:"",
+  people:[["王詩怡","L"],["楊晶晶","XL"]],
+  tasks:["06:30 至淡水行忠宮旁人行道場佈。","協助發摸彩卷。","引導民眾動線。"],where:["淡水行忠宮旁人行道"]},
+ {zone:"機動",name:"車輛 A 組",lead:"開 AAN-2609",
+  people:[["方思喻","XL"],["李昱奇","XL"]],
+  tasks:["開 AAN-2609。","06:30 搭乘車輛，按地點 2～5 沿途發放設備。","回淡水球場停車場協助發放物資。","回地點 2 協助物資。","活動結束，沿途設備回收及帳篷現場淨空，全數上車回 69 號。"],
+  where:["和衷宮","淡水球場停車場","雲門舞集旁星巴克機車停車場","淡水行忠宮旁人行道","新興國小"]},
+ {zone:"機動",name:"車輛 B 組",lead:"開 5373-YE",
+  people:[["許信傑","L"],["李健銘","XL"]],
+  tasks:["開 5373-YE。","06:30 前至和衷宮載早餐。","按照名單發放早餐。","回淡水球場停車場協助發放物資。","活動結束，帳篷現場淨空，全數上車回 69 號。","通知小吳請帳篷商撤場。"],
+  where:["和衷宮","淡水球場停車場","雲門舞集旁星巴克機車停車場","淡水行忠宮旁人行道","新興國小"]}
+];
+
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const whereHTML=w=>w.map(x=>MAP[x]?`<a href="${MAP[x]}" target="_blank" rel="noopener">${x}</a>`:`<span>${x}</span>`).join("");
+
+let html="",last="";
+G.forEach((g,i)=>{
+  if(g.zone!==last){ if(last) html+="</div>"; html+=`<div class="zone"><div class="zone-name">${g.zone}</div>`; last=g.zone; }
+  html+=`<article class="group" id="g${i}">
+    <header><h3>${g.name}</h3><span class="count">${g.people.length} 人</span></header>
+    ${g.lead?`<div class="lead">${g.lead}</div>`:""}
+    <div class="people">${g.people.map(p=>`<span class="p${p[2]?" sub":""}">${p[0]}${p[2]?`<i>${p[2]}</i>`:""}</span>`).join("")}</div>
+    <ol class="tasks">${g.tasks.map(t=>`<li>${t}</li>`).join("")}</ol>
+    ${g.note?`<div class="note">${g.note}</div>`:""}
+    <div class="where">${whereHTML(g.where)}</div>
+  </article>`;
+});
+html+="</div>";
+document.getElementById("groups").innerHTML=html;
+
+document.getElementById("spots").innerHTML=Object.entries(MAP).map(([k,v])=>
+  `<a class="spot" href="${v}" target="_blank" rel="noopener"><b>${k}</b><span>開啟 Google 地圖</span></a>`).join("");
+
+const cnt={};
+G.forEach(g=>g.people.forEach(p=>cnt[p[1]]=(cnt[p[1]]||0)+1));
+document.getElementById("sizes").innerHTML=["M","L","XL","2L","-"].filter(s=>cnt[s]).map(s=>
+  `<div class="size"><b>${cnt[s]}</b><span>${s==="-"?"未填":s}</span></div>`).join("");
+
+const q=document.getElementById("q"),res=document.getElementById("result");
+q.addEventListener("input",()=>{
+  const v=q.value.trim();
+  if(!v){res.innerHTML="";return;}
+  const hits=[];
+  G.forEach((g,i)=>g.people.forEach(p=>{if(p[0].includes(v))hits.push({g,i,p});}));
+  if(!hits.length){res.innerHTML=`<div class="miss">找不到「${esc(v)}」，請確認姓名用字。</div>`;return;}
+  res.innerHTML=hits.map(h=>`<div class="hit">
+    <div class="who">${h.p[0]}<small>${h.g.zone}｜${h.g.name}${h.p[2]?"・"+h.p[2]:""}｜尺寸 ${h.p[1]==="-"?"未填":h.p[1]}</small></div>
+    <ol class="tasks">${h.g.tasks.map(t=>`<li>${t}</li>`).join("")}</ol>
+    ${h.g.note?`<div class="note">${h.g.note}</div>`:""}
+    <div class="where">${whereHTML(h.g.where)}</div>
+    <div style="margin-top:8px"><a href="#g${h.i}" data-g="g${h.i}">看同組夥伴</a></div>
+  </div>`).join("");
+});
+res.addEventListener("click",e=>{
+  const a=e.target.closest("a[data-g]"); if(!a)return;
+  const el=document.getElementById(a.dataset.g);
+  el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
+});
+</script>
+</body>
+</html>
